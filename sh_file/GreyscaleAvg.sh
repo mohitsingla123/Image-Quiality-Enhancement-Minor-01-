@@ -1,7 +1,7 @@
 #!/bin/bash
 gcc greyscaleAvg.c
 ./a.out
-eog RefImg.bmp
+clear
 eog GreyscaleAvg.bmp
 clear
 gcc mainfile.c

@@ -1,7 +1,7 @@
 #!/bin/bash
 gcc bluetones.c
 ./a.out
-eog RefImg.bmp
+clear
 eog Bluetone.bmp
 clear
 gcc mainfile.c
