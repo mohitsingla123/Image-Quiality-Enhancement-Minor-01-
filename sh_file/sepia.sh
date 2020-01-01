@@ -1,7 +1,7 @@
 #!/bin/bash
 gcc sepia.c
 ./a.out
-eog RefImg.bmp
+clear
 eog Sepia.bmp
 clear
 gcc mainfile.c

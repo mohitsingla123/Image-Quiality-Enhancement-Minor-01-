@@ -1,7 +1,7 @@
 #!/bin/bash
 gcc scaling.c
 ./a.out
-eog RefImg.bmp
+clear
 eog Scaled.bmp
 clear
 gcc mainfile.c

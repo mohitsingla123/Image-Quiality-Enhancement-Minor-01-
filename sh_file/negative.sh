@@ -1,7 +1,7 @@
 #!/bin/bash
 gcc negative.c
 ./a.out
-eog RefImg.bmp
+clear
 eog Negative.bmp
 clear
 gcc mainfile.c
