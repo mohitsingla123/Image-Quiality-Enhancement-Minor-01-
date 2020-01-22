@@ -1,18 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <strings.h>
 #define MAX_VALUE 255
 #define MIN_VALUE 0
 
-
-int main() 
-{
-printf("\n 							Insert the Image name you want to Modify/Enhance \n\n");
+int main() {
+	printf("\n 							Insert the Image name you want to Modify/Enhance \n\n");
     char str[20]; 
     gets(str); 
-//  printf("%s", str); 
-    FILE * f1 = fopen(str , "r"); //Input File name
-    FILE * f2 = fopen("Bluetone.bmp", "w+"); //Output File name
+    
+    FILE * f1 = fopen(str, "r"); //Input File name
+    FILE * f2 = fopen("Sepia.bmp", "w+"); //Output File name
 
     int i, j, r, g, b, r1, g1, b1;
     unsigned char header[54];
@@ -51,9 +48,9 @@ printf("\n 							Insert the Image name you want to Modify/Enhance \n\n");
            
 
             //conversion formula of rgb to negative
-            r = (buffer[0][i][j]*0.393)+(buffer[0][i][j]*0.769)+(buffer[0][i][j]*0.189);
+            b = (buffer[0][i][j]*0.393)+(buffer[0][i][j]*0.769)+(buffer[0][i][j]*0.189);
             g = (buffer[0][i][j]*0.349)+(buffer[0][i][j]*0.686)+(buffer[0][i][j]*0.168);
-            b = (buffer[0][i][j]*0.272)+(buffer[0][i][j]*0.534)+(buffer[0][i][j]*0.131);
+            r = (buffer[0][i][j]*0.272)+(buffer[0][i][j]*0.534)+(buffer[0][i][j]*0.131);
 	    
   	   
 		if(r > MAX_VALUE){											//if value exceeds

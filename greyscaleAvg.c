@@ -4,8 +4,11 @@
 #define MIN_VALUE 0
 
 int main() {
+printf("\n 							Insert the Image name you want to Modify/Enhance \n\n");
+    char str[20]; 
+    gets(str); 
     
-    FILE * f1 = fopen("RefImg.bmp", "r"); //Input File name
+    FILE * f1 = fopen(str, "r"); //Input File name
     FILE * f2 = fopen("GreyscaleAvg.bmp", "w+"); //Output File name
 
     int i, j, r, g, b, r1, g1, b1;

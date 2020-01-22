@@ -79,8 +79,11 @@ float bilinearly_interpolate (int top, int bottom, int left, int right,float hor
 
 int main()
 {
-
-	FILE *f1 = fopen("RefImg.bmp","r");		
+printf("\n 							Insert the Image name you want to Modify/Enhance \n\n");
+    char str[20]; 
+    gets(str); 
+    
+    FILE * f1 = fopen(str, "r"); //Input File name		
 	FILE *f2 = fopen("Scaled.bmp","w+");		  
 
 	int i,j,k,r,g,b,r1,g1,b1;

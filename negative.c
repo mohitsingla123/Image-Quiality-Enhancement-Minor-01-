@@ -1,18 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <strings.h>
 #define MAX_VALUE 255
 #define MIN_VALUE 0
 
-
-int main() 
-{
+int main() {
+    
 printf("\n 							Insert the Image name you want to Modify/Enhance \n\n");
     char str[20]; 
     gets(str); 
-//  printf("%s", str); 
-    FILE * f1 = fopen(str , "r"); //Input File name
-    FILE * f2 = fopen("Bluetone.bmp", "w+"); //Output File name
+    
+    FILE * f1 = fopen(str, "r"); //Input File name
+    FILE * f2 = fopen("Negative.bmp", "w+"); //Output File name
 
     int i, j, r, g, b, r1, g1, b1;
     unsigned char header[54];
@@ -48,23 +46,26 @@ printf("\n 							Insert the Image name you want to Modify/Enhance \n\n");
 	    r1 = buffer[0][i][j] = getc(f1); //red
             g1 = buffer[1][i][j] = getc(f1); //green
             b1 = buffer[2][i][j] = getc(f1); //blue
-           
+            
 
             //conversion formula of rgb to negative
-            r = (buffer[0][i][j]*0.393)+(buffer[0][i][j]*0.769)+(buffer[0][i][j]*0.189);
-            g = (buffer[0][i][j]*0.349)+(buffer[0][i][j]*0.686)+(buffer[0][i][j]*0.168);
-            b = (buffer[0][i][j]*0.272)+(buffer[0][i][j]*0.534)+(buffer[0][i][j]*0.131);
+            r = (255 - r1);
+            g = (255 - g1);
+            b = (255 - b1);
 	    
-  	   
-		if(r > MAX_VALUE){											//if value exceeds
-			r = MAX_VALUE;
-		}
-		if(g > MAX_VALUE){
-			g = MAX_VALUE;
-		}
-		if(b > MAX_VALUE){
-			b = MAX_VALUE;
-		}
+  	    //if value in less than MIN_VALUE then the pixel should not be lighted
+            if (r < MIN_VALUE)
+	    {
+                r = MIN_VALUE;
+            }
+            if (g < MIN_VALUE)
+	    {
+                g = MIN_VALUE;
+            }
+            if (b < MIN_VALUE) 
+	    {
+                b = MIN_VALUE;
+            }
             putc(r, f2);
             putc(g, f2);
             putc(b, f2);
@@ -72,7 +73,7 @@ printf("\n 							Insert the Image name you want to Modify/Enhance \n\n");
     }
 
     fclose(f1);
-    fclose(f2);
+    fclose(f1);
 
     return 0;
 }
